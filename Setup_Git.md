@@ -23,7 +23,17 @@
      ```
    - Follow the prompts to save the key (e.g., `id_rsa`) in the default location.
 
-4. **Add SSH Key to GitHub:**
+4. **Start SSH Agent and Add SSH Key:**
+   - Start the SSH agent:
+     ```
+     eval "$(ssh-agent -s)"
+     ```
+   - Add your SSH key to the agent:
+     ```
+     ssh-add ~/.ssh/id_rsa
+     ```
+
+5. **Add SSH Key to GitHub:**
    - Copy your SSH key to the clipboard:
      ```
      cat ~/.ssh/id_rsa.pub | pbcopy    (Mac)
@@ -34,14 +44,14 @@
    - Paste your SSH key into the "Key" field and add a relevant title.
    - Click "Add SSH key."
 
-5. **Test Connection:**
+6. **Test Connection:**
    - Verify that Git is correctly configured by testing the connection to GitHub:
      ```
      ssh -T git@github.com
      ```
    - You should see a message confirming your connection.
 
-6. **Clone a Repository (Optional):**
+7. **Clone a Repository (Optional):**
    - To clone an existing repository from GitHub, navigate to the repository's page on GitHub.
    - Click on the "Code" button and copy the SSH URL.
    - In your terminal, navigate to the directory where you want to clone the repository.
@@ -51,14 +61,14 @@
      ```
    - Replace `username/repository` with the actual username and repository name.
 
-7. **Configure Repository (Optional):**
+8. **Configure Repository (Optional):**
    - If you've cloned a repository or created a new one locally, configure Git to track changes:
      ```
      git remote add origin git@github.com:username/repository.git
      ```
    - Again, replace `username/repository` with your GitHub username and repository name.
 
-8. **Push Changes:**
+9. **Push Changes:**
    - After making changes to your local repository, push those changes to GitHub:
      ```
      git add .
